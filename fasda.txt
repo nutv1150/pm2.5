@@ -1,0 +1,53 @@
+ private void rainFT(){
+        int dataPM2 =dataPM;
+        double sum50 =(int)dataPM2/100*50;
+        System.out.println(sum50);
+
+
+        if(inputValue != 0){
+            pp = inputValue;
+            
+            if(sum50 >= 0 && sum50 <= 50){
+                ppS = inputValue / 100 * ran[0];
+            } else if(sum50 >= 51 && sum50 <= 100){
+                ppS = inputValue / 100 * ran[1];
+            } else if(sum50 >= 101 && sum50 <= 150){
+                ppS = inputValue / 100 * ran[2];
+            } else if(sum50 >= 151 && sum50 <= 250){
+                ppS = inputValue / 100 * ran[3];
+            }
+            
+            ppG = inputValue - ppS;
+            ppAvg = (ppS * 100) / inputValue;
+        
+            textarea.setText("Dust volume:" + dataPM +
+                             "\nPeople:" + pp +
+                             "\nHealthy population:" + ppG +
+                             "\nSick population:" + ppS +
+                             "\nPercentage of the population:" + ppAvg + "");
+        } else {
+            if(index >= 0 && index < 200) {
+                int sam = Integer.parseInt(datarandom.get(index));
+                pp = sam;
+                
+                if(sum50 >= 0 && sum50 <= 50){
+                    ppS = sam / 100 * ran[0];
+                } else if(sum50 >= 51 && sum50 <= 100){
+                    ppS = sam / 100 * ran[1];
+                } else if(sum50 >= 101 && sum50 <= 150){
+                    ppS = sam / 100 * ran[2];
+                } else if(sum50 >= 151 && sum50 <= 250){
+                    ppS = sam / 100 * ran[3];
+                }
+                
+                ppG = sam - ppS;
+                ppAvg = (ppS * 100) / sam;
+        
+                textarea.setText("Dust volume:" + sum50 +
+                                 "\nPeople:" + pp +
+                                 "\nHealthy population:" + ppG +
+                                 "\nSick population:" + ppS +
+                                 "\nPercentage of the population:" + ppAvg + "");
+            }
+        }
+    }
